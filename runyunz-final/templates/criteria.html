@@ -1,0 +1,22 @@
+{% block content %}
+	<p class="lead">Exploration = Follow + Watch</p>
+	<pre>SELECT count(*) FROM [githubarchive:github.timeline] WHERE actor='...' AND type='FollowEvent';</pre>
+	<pre>SELECT count(*) FROM [githubarchive:github.timeline] WHERE actor='...' AND type='WatchEvent';</pre>
+
+	<p class="lead">Reputation = Be Followed + Be Watched</p>
+	<pre>SELECT count(*) FROM [githubarchive:github.timeline] WHERE payload_target_login='...' AND type='FollowEvent';</pre>
+	<pre>SELECT count(*) FROM [githubarchive:github.timeline] WHERE repository_owner = '...' and type = 'WatchEvent';</pre>
+
+	<p class="lead">Contribution = Push</p>
+	<pre>SELECT count(*) FROM [githubarchive:github.timeline] WHERE actor='...' AND type='PushEvent';</pre>
+
+	<p class="lead">Collaboration = PullRequest</p>
+	<pre>SELECT count(*) FROM [githubarchive:github.timeline] WHERE actor='...' AND type='PullRequestEvent';</pre>
+
+	<p class="lead">Communication = Review Comments + Issue Comments</p>
+	<pre>SELECT COUNT(*) FROM [githubarchive:github.timeline] WHERE actor='...' AND type='IssueCommentEvent';</pre>
+	<pre>SELECT COUNT(*) FROM [githubarchive:github.timeline] WHERE actor='...' AND type='PullRequestReviewCommentEvent';</pre>
+
+	<p class="lead">Rank</p>
+	<p>Score = log(counts) [scope: 0 - 5]</p>
+{% endblock %}

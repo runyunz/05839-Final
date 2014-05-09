@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+    <!-- <h1>Compare</h1> -->
+    <div id="body">
+      <div id="chart"></div>
+    </div>
+<!--     <div>
+      <p>{{res}}</p>
+      <p>{{users}}</p>
+    </div> --> 
+{% endblock %}
+{% block javascript %}
+  <script type="text/javascript">
+   {% include "radar.js" %}     
+  </script>
+{% endblock %}
